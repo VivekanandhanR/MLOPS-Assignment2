@@ -9,7 +9,7 @@ This project demonstrates a complete **MLOps workflow** — converting a Jupyter
 
 **Hugging Face model link:** https://huggingface.co/Vivek-ML-Projects/distilbert-goodreads-genres
 
-**WandB link:** https://wandb.ai/vivek-iitj/mlops-assignment2
+**WandB Dashboard:** https://wandb.ai/vivek-iitj/mlops-assignment2
 
 ============================================================================
 
@@ -30,34 +30,13 @@ DistilBERT-base-cased was chosen because it is 40% smaller and 60% faster than B
 ============================================================================
 ### Setup Instructions
 
-**Clone Repository**
-
-bash
-git clone https://github.com/VivekanandhanR/MLOPS-Assignment2.git
-
-cd MLOPS-Assignment2
-
-============================================================================
-
-**Create & Activate Environment**
-
-uv venv
-
-.venv\Scripts\activate    
-
-============================================================================
-
-**Install Dependencies**
-
-uv pip install -r requirements.txt
-
-============================================================================
-
-**Logins**
-
-wandb login
-
-huggingface-cli login
+1. Import notebook `g25ait2077-vivekanandhanr-mlops-assignment-2.ipynb` into Kaggle.
+2. Enable GPU: Settings → Accelerator → GPU T4 x2.
+3. Enable Internet: Settings → Internet ON.
+4. Add Kaggle Secrets: `WANDB_API_KEY` and `HF_TOKEN`.
+5. Run all cells.
+6. Push the fine tuned model to hugging face
+7. Check the performance of model in WandB
 
 ============================================================================
 
@@ -66,8 +45,8 @@ huggingface-cli login
 | **Metric**| **Score** |
 |-----------|-------|
 | Accuracy  | 0.571 |
-| F1 Score  | 0.577 |
-| Eval Loss | 2.795 |
+| F1 Score  | 0.583 |
+| Eval Loss | 2.401 |
 
 ============================================================================
 
