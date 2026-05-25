@@ -1,9 +1,12 @@
 # MLOps Assignment 2 
 ML OPS assignment for Hugging Face Fine-Tuning, Experiment Tracking &amp; Model Deployment
 
-**Name:** Vivekanandhan R 
+**Name:** Vivekanandhan R
+
 **Roll Number:** G25AIT2077  
-**Program:** PGD AI, IIT Jodhpur  
+
+**Program:** PGD AI
+
 **Date:** 25 May 2026
 
 ---
@@ -100,26 +103,20 @@ def compute_metrics(pred):
     return {'accuracy': acc, 'f1': f1}
 ```
 
-After fine-tuning, the final evaluation metrics are logged to W&B and the full `classification_report` is saved as a JSON artifact:
-
-```python
-wandb.log({'final/loss': ..., 'final/accuracy': ..., 'final/f1': ...})
-artifact = wandb.Artifact('eval-report', type='evaluation')
-artifact.add_file('eval_report.json')
-wandb.log_artifact(artifact)
-```
-
 ### 4.4 Hugging Face Hub Deployment
-The fine-tuned model and tokenizer are pushed to the Hub under the repository `Nikhil-iitj/distilbert-goodreads-genres`:
+The fine-tuned model and tokenizer are pushed to the Hub under the repository `Vivek-ML-Projects/distilbert-goodreads-genres`:
 
-```python
+'''python
 from huggingface_hub import login
+ 
 login(token=HF_TOKEN)
-model.push_to_hub('Nikhil-iitj/distilbert-goodreads-genres')
-tokenizer.push_to_hub('Nikhil-iitj/distilbert-goodreads-genres')
-```
 
-The W&B run summary is updated with the Hugging Face model URL for traceability.
+model.push_to_hub("Vivek-ML-Projects/distilbert-goodreads-genres")
+tokenizer.push_to_hub("Vivek-ML-Projects/distilbert-goodreads-genres")
+
+wandb.run.summary["huggingface_model"] = \
+    "https://huggingface.co/Vivek-ML-Projects/distilbert-goodreads-genres" '''
+
 
 ### 4.5 Inference from Hub
 A demonstration cell loads the deployed model directly from Hugging Face Hub and performs interactive genre prediction on user-supplied book reviews, confirming the deployment is functional.
@@ -143,8 +140,8 @@ After 3 epochs of fine-tuning, the model was evaluated on the held-out test set.
 ## 6. Challenges Faced & Learnings
 
 1. **Kaggle Internet Toggle:** `ConnectionError` when loading Kaggle Secrets. **Resolution:** Explicitly enable Internet in Notebook Settings and restart the session.
-2. **Hugging Face Namespace Mismatch:** `push_to_hub` failed with `403 Forbidden` when using an incorrect username. **Resolution:** Verified the exact Hugging Face username (`Nikhil-iitj`) and used a Write-scoped token.
-3. **Credential Validation:** Verifying API keys and namespace permissions *before* starting training saves debugging time after a long GPU run.
+2. **Accelerator Error:** Faced accelerator error while training the model. Its due to the token exhaustion for distilbert which supports maximum of 30552 tokens only **Resolution:** By mistake, i have copied the training model for 2 times in various places. commenting one of the trainer call resolved this problem.
+3. **WandB Reporting issue**: First couple of times my executioin results were not reported to WandB dashboard. **Resultion**: There was a command under training arguments was mentioned as report_to=[], updated this to report_to='wandb' and started seeing my dashboard.
 
 ---
 
