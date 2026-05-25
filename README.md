@@ -28,6 +28,38 @@ DistilBERT-base-cased was chosen because it is 40% smaller and 60% faster than B
 
 
 ============================================================================
+### Setup Instructions
+
+**Clone Repository**
+
+bash
+git clone https://github.com/ledj777-svg/MLOPS--Assignment-2.git
+
+cd mlops-assignment2
+
+============================================================================
+
+**Create & Activate Environment**
+
+uv venv
+
+.venv\Scripts\activate    
+
+============================================================================
+
+**Install Dependencies**
+
+uv pip install -r requirements.txt
+
+============================================================================
+
+**Logins**
+
+wandb login
+
+huggingface-cli login
+
+============================================================================
 
 **Results**
  
