@@ -33,9 +33,9 @@ DistilBERT-base-cased was chosen because it is 40% smaller and 60% faster than B
 **Clone Repository**
 
 bash
-git clone https://github.com/ledj777-svg/MLOPS--Assignment-2.git
+git clone https://github.com/VivekanandhanR/MLOPS-Assignment2.git
 
-cd mlops-assignment2
+cd MLOPS-Assignment2
 
 ============================================================================
 
