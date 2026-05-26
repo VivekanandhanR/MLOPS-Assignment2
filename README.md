@@ -1,7 +1,7 @@
 # MLOPS-Assignment2
 ML OPS assignment for Hugging Face Fine-Tuning, Experiment Tracking &amp; Model Deployment
 
-This project demonstrates a complete **MLOps workflow** — converting a Jupyter notebook into production scripts, tracking experiments with Weights & Biases, and deploying the model to Hugging Face Hub.
+This project demonstrates a complete **MLOps workflow** — By importing the notebook file to Kaggle, enable free GPU feature ON in kaggle, training the model, tracking experiments with Weights & Biases, and deploying the model to Hugging Face Hub.
 
 ============================================================================
 
@@ -17,15 +17,17 @@ This project demonstrates a complete **MLOps workflow** — converting a Jupyter
 
 This project implements a full MLOps pipeline for fine-tuning a DistilBERT model on the UCSD Goodreads book reviews dataset to classify book reviews into 8 different genres (Poetry, Children, Comics & Graphic, Fantasy & Paranormal, History & Biography, Mystery/Thriller/Crime, Romance, and Young Adult). 
 
-The workflow includes converting the Jupyter notebook to clean and modular Python scripts (data.py, train.py, eval.py, utils.py), proper data preprocessing and tokenization, model training using Hugging Face Transformers and experiment tracking with Weights & Biases (W&B), detailed evaluation using classification metrics, and finally deploying the trained model and tokenizer to the Hugging Face Hub for public access. The entire process focuses on reproducibility, production-ready code practices and end-to-end MLOps principles.
+The workflow includes importing the notebook file to Kaggle, enable free GPU feature ON in kaggle and tokenization, model training using Hugging Face Transformers and experiment tracking with Weights & Biases (W&B), detailed evaluation using classification metrics, and finally deploying the trained model and tokenizer to the Hugging Face Hub for public access. The entire process focuses on reproducibility, production-ready code practices and end-to-end MLOps principles.
 
 ============================================================================
 
 **Model Selection**
 
+I chose the **DistilBERT-base-cased** model because it offers an excellent balance between accuracy and efficiency. According to its Hugging Face model card, DistilBERT is a distilled version of BERT that reduces the number of parameters by 40% while retaining about 97% of BERT’s performance on language understanding benchmarks. 
 
-DistilBERT-base-cased was chosen because it is 40% smaller and 60% faster than BERT-base while keeping about 97% of its language understanding ability. This made it ideal for this MLOps assignment, which focused on workflow efficiency instead of maximum accuracy.
+This makes it faster and lighter, which is ideal for projects where computational resources are limited or where real-time inference is required. Despite being smaller, DistilBERT still captures rich contextual information from text, making it suitable for tasks such as sentiment analysis, classification, and question answering. 
 
+I've selected this model because it provides strong results with lower memory and processing requirements, making it practical for both academic experiments and deployment in production environments.
 
 ============================================================================
 ### Setup Instructions
